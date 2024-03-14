@@ -1,8 +1,8 @@
 style.css
 /* CCLab CSS template project A */
 body {
-    background-color: black;
-    color: aliceblue;
+    background-color: rgb(223, 238, 9);
+    color: rgb(227, 173, 11);
     font-family: 'Courier New', Courier, monospace;
     font-size: 1em;
 }
@@ -71,8 +71,8 @@ body {
     right: 50px;
     top: 10px;
     padding: 10px 20px;
-    color: dimgrey;
-    border: solid dimgrey 0.5px;
+    color: rgb(218, 225, 134);
+    border: solid rgb(247, 150, 5) 0.5px;
     font-size: 0.7em;
     text-decoration: none;
 }
