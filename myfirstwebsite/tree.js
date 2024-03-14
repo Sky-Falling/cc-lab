@@ -146,7 +146,7 @@ function setup() {
   //star part
   noStroke();
   fill(0, 58, 73); //sea color
-  rect_modified(0, 302, 800, 188, 1); //draw sea
+  rect_modified(0, 300, 800, 200, 1); //draw sea
 
   fill("rgb(151,123,71)");
   arc(600, 475, 710, 350, 0.5 * PI, 2 * PI); //the outer part of the island
