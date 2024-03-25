@@ -72,10 +72,10 @@ class FredDancer {
                    }
                    this.cita+=this.cita_speed;
   
-    if(this.cita<=20){this.oci = map(this.cita,0,20,-1,3);}
-    else if(this.cita<=40){this.oci = map(this.cita,20,40,3,0);}
-    else if(this.cita > 160){this.oci = map(this.cita,160,180,-1,3);}
-    else if(this.cita > 140){this.oci = map(this.cita,140,160,3,0);}
+    if(this.cita<=20){this.oci = map(this.cita,0,20,-2,4);}
+    else if(this.cita<=40){this.oci = map(this.cita,20,40,4,0);}
+    else if(this.cita > 160){this.oci = map(this.cita,160,180,-2,4);}
+    else if(this.cita > 140){this.oci = map(this.cita,140,160,4,0);}
     else{this.oci = 0;}
   }
   display() {
