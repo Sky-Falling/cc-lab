@@ -4,10 +4,11 @@ let insect_number = 10;
 let particles = [];
 
 function setup() {
-  createCanvas(600, 600);
+  let canvas = createCanvas(windowWidth, windowHeight);
+  canvas.parent("canvas");
   // generate particles
   for (let i = 0; i < 20; i++) {
-    insect.push(new Insect(random(600), random(600)));
+    insect.push(new Insect(random(width), random(height)));
   }
 }
 
@@ -18,7 +19,7 @@ function draw() {
     let p = particles[i];
     p.update();
     p.display();
-    if (p.brightness < 40) {
+    if (p.brightness < 50) {
       particles.splice(i, 1);
     }
     print(particles.length);
