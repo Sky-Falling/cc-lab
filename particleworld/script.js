@@ -4,8 +4,8 @@ let insect_number = 10;
 let particles = [];
 
 function setup() {
-  let canvas = createCanvas(windowWidth, windowHeight);
-  canvas.parent("canvas");
+  let canvas = createCanvas(600, 600);
+  canvas.parent("canvasContainer");
   // generate particles
   for (let i = 0; i < 20; i++) {
     insect.push(new Insect(random(width), random(height)));
