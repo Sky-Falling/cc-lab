@@ -45,17 +45,10 @@ function preload() {
  cucumber = loadImage('cucumber.jpg');
  chicken = loadImage('freeze-dry chicken.jpg');
 
-
-
-
-
-
-
-
  avacado = loadImage('avacado.jpg');
  cookie = loadImage('cookie.jpg');
  grape = loadImage('grape.jpg');
- milk = loadImage('milk.png');
+ milk = loadImage('grape.png');
  egg = loadImage('raw egg.jpg');
 
  BBQ_chicken = loadImage('BBQ_chicken.png');
