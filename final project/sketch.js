@@ -53,7 +53,7 @@ function preload() {
  avacado = loadImage('avacado.jpg');
  cookie = loadImage('cookie.jpg');
  grape = loadImage('grape.jpg');
- milk = loadImage('milk.png');
+ //milk = loadImage('milk.png');
  egg = loadImage('raw egg.jpg');
 
  BBQ_chicken = loadImage('BBQ_chicken.png');
@@ -71,7 +71,7 @@ function setup() {
 
 
   healthy_foods = [salmon,cucumber,chicken,  blueberry, boiled_chicken_breast ,cat_grass, cooked_egg_yolk ,cooked_pumpkin, potato, rice];
-  unhealthy_foods = [avacado,cookie,grape,milk,egg,BBQ_chicken, corn ,flavored_can, fried_snacks ,tomato ,chocolate];
+  unhealthy_foods = [avacado,cookie,grape,egg,BBQ_chicken, corn ,flavored_can, fried_snacks ,tomato ,chocolate];
 
    
   for(let i = 0 ; i<healthy_foods.length;i++){
