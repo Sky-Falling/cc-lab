@@ -21,7 +21,7 @@ function preload() {
   house5 = loadImage("house5.png");
   house = [house1, house2, house3, house4, house5];
   school1 = loadImage("school1.png");
-  city = loadImage("day.png");
+  city = loadImage("city1.png");
   hospital = loadImage("hospital1.jpg");
   day = loadImage("day.png");
   night = loadImage("night.jpg");
@@ -39,7 +39,7 @@ function preload() {
  avacado = loadImage('avacado.jpg');
  cookie = loadImage('cookie.jpg');
  grape = loadImage('grape.png');
- milk = loadImage('house1.jpg');
+ milk = loadImage('milk1.jpg');
  egg = loadImage('raw egg.webp');
   
 }
