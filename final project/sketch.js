@@ -169,7 +169,6 @@ function fail(){
   text('You Lose',width/2,height/3);
   textSize(30);
   text('Your Score:'+String(score),width/2,height/1.5);
-  displayScore(score);
 }
 
 
