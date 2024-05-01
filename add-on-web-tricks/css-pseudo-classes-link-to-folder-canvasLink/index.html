@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CCLab Project</title>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <script src="libraries/p5.min.js"></script>
+  <!-- Uncomment the line below if you use audio. -->
+  <!-- <script src="libraries/p5.sound.min.js"></script> -->
+</head>
+
+<body>
+
+  <h1>Project Title</h1>
+  <p>On this page, and in the code you find examples for</p>
+  <ul>
+    <li>multi pages linked to each other</li>
+    <li>pretty URLs because every page has its own folder</li>
+    <li>pseudo class to creat a hover effect on the link</li>
+    <li>linking to new pages via canvas interaction</li>
+  </ul>
+
+  <!-- the following div will contain the p5 canvas. -->
+  <div id="canvasContainer"></div>
+
+  <p>Press below link (or press on the canvas!) to go to the garden.</p>
+  <!-- the garden page is inside a folder "garden", inside there
+  the html file has the default name "index.html". that's default which
+  is why i don't have to link to "garden/index.html" but the browser
+  will open that file by default. that also makes the URL look prettier! -->
+  <a class="gardenLINK" href="garden">GARDEN</a>
+
+  <!-- the script tag below should always be at the bottom, right before the closing body tag -->
+  <script src="sketch.js"></script>
+</body>
+
+</html>

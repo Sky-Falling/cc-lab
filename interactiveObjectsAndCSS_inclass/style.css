@@ -1,0 +1,112 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: deepskyblue;
+}
+
+canvas {
+  display: block;
+}
+
+.textBox p{
+  background-color: rgb(159, 94, 192);
+  margin: 0;
+}
+
+.textBox .miniHeadline{
+  color: red;
+  background-color: cornflowerblue;
+}
+
+.specialHighlight{
+  color: white;
+  background-color: black;
+}
+
+.textBox{
+  background-color: aquamarine;
+  width: 200px;
+  /* outline-color: black;
+  outline-width: 1px;
+  outline-style: dashed; */
+  border: black 1px dashed;
+  padding: 10px;
+  margin: 5px;
+  margin-left: 10px;
+}
+
+.box1{
+  position: absolute;
+  left: 350px;
+  top: 20px;
+}
+
+.box2{
+  position: fixed;
+  left: 100px;
+  top:20px;
+
+}
+
+.box3{
+  position: relative;
+  left: 100px;
+  top:20px;
+}
+
+.relativeDescription{
+  position: relative;
+  left: 10px;
+  top:-5px;
+  
+}
+
+
+
+h1{
+  background-color: green;
+  text-align: center;
+
+}
+
+
+#mainWrapper{
+
+
+
+display:flex;
+outline: 1px dashed black;
+flex-direction:row;
+width:100%;
+max-width: 1000px;
+
+}
+
+
+@media(max-width:800px){
+
+
+#mainWrapper{
+
+flex-direction:column;
+
+}
+#canvasContainer{
+order:1;
+
+}
+
+.intro{
+
+order:3;
+
+}
+
+.credits{
+
+order:2;
+
+}
+
+
+}
