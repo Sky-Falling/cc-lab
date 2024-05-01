@@ -53,7 +53,6 @@ function preload() {
  avacado = loadImage('avacado.jpg');
  cookie = loadImage('cookie.jpg');
  grape = loadImage('grape.jpg');
- //milk = loadImage('milk.png');
  egg = loadImage('raw egg.jpg');
 
  BBQ_chicken = loadImage('BBQ_chicken.png');
