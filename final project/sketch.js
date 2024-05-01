@@ -2,7 +2,7 @@ let speedX = 0;
 let targetSpeedX = 0;
 let latestNewKeyPress;
 let building_size = 400;
-let dayLength = 10000;
+let dayLength = 30000;
 let weather = 0;
 let state = 'ongoing';
 let foods = [];
@@ -30,17 +30,33 @@ function preload() {
   cat_right = loadImage("character_right.png");
 
 
+  blueberry = loadImage('blueberry.jpg');
+  boiled_chicken_breast =  loadImage('boiled chicken breast.jpg');
+  cat_grass = loadImage('cat grass.jpg');
+  cooked_egg_yolk = loadImage('cooked egg yolk.jpg');
+  cooked_pumpkin = loadImage('cooked pumpkin.jpg');
+  potato = loadImage('potato.jpg');
+  rice = loadImage('rice.jpg');
 
- salmon = loadImage('cooked salmon.png');
- cucumber = loadImage('cucumber.WEBP');
- chicken = loadImage('freeze-dry chicken.png');
+
+
+
+ salmon = loadImage('cooked salmon.jpg');
+ cucumber = loadImage('cucumber.jpg');
+ chicken = loadImage('freeze-dry chicken.jpg');
+
+
+
+
+
+
 
 
  avacado = loadImage('avacado.jpg');
  cookie = loadImage('cookie.jpg');
- grape = loadImage('grape.png');
- milk = loadImage('milk1.jpg');
- egg = loadImage('raw egg.webp');
+ grape = loadImage('grape.jpg');
+ milk = loadImage('milk.png');
+ egg = loadImage('raw egg.jpg');
   
 }
 
@@ -50,7 +66,7 @@ function setup() {
   streetline = 0.618 * height;
 
 
-  healthy_foods = [salmon,cucumber,chicken];
+  healthy_foods = [salmon,cucumber,chicken,  blueberry, boiled_chicken_breast ,cat_grass, cooked_egg_yolk ,cooked_pumpkin, potato, rice];
   unhealthy_foods = [avacado,cookie,grape,milk,egg];
 
    
@@ -79,15 +95,15 @@ function setup() {
   cat_left.resize(100, 0);
   cat_right.resize(100, 0);
 
+  for(let i = 1; i<healthy_foods.length;i++){
 
-  salmon.resize(food_size,0);
-  cucumber.resize(food_size,0);
-  chicken.resize(food_size,0);
-  avacado.resize(food_size,0);
-  cookie.resize(food_size,0);
-  grape.resize(food_size,0);
-  milk.resize(food_size,0);
-  egg.resize(food_size,0);
+    healthy_foods[i].resize(food_size,0);
+  }
+
+  for(let i = 0; i<unhealthy_foods.length;i++){
+
+    unhealthy_foods[i].resize(food_size,0);
+  }
 
   stars = new Stars();
 
@@ -105,21 +121,38 @@ function setup() {
 
 }
 
+
+
 function draw() {
+
+  if(score==9){state = 'win';}
 
   switch (state){
     case 'ongoing': ongoing();
     break;
     case 'fail': fail();
       break;
+    case 'win': win();
+    break;
   }
+
+}
+
+function win(){
+
+
+  background('green');
+  
+  textAlign(CENTER);
+  textSize(60);
+  text('You win',width/2,height/3);
 
 }
 
 class Food{
   constructor(FOOD,HEALTHY){
 
-    this.x = random(-1500,1500);
+    this.x = random(-800,800);
     let p = random(1);
       if(p<0.75) {this.y = random(streetline,580);} 
       else{this.y = random(700,height);}
