@@ -2,15 +2,20 @@ let speedX = 0;
 let targetSpeedX = 0;
 let latestNewKeyPress;
 let building_size = 400;
-let dayLength = 30000;
+let dayLength = 15000;
 let weather = 0;
 let state = 'ongoing';
 let foods = [];
 let score = 0;
 let food_size = 50;
+let HP = 100;
+let HP_decay = 0.05;
+
+
+
 function preload() {
   
-
+  
   tree2 = loadImage('tree2.png');
   tree1 = loadImage('tree1.png');
   car = loadImage('car.png');
@@ -66,7 +71,7 @@ function setup() {
 
 
   healthy_foods = [salmon,cucumber,chicken,  blueberry, boiled_chicken_breast ,cat_grass, cooked_egg_yolk ,cooked_pumpkin, potato, rice];
-  unhealthy_foods = [avacado,cookie,grape,milk,egg,BBQ,_chicken, corn ,flavored_can, fried_snacks ,tomato ,chocolate];
+  unhealthy_foods = [avacado,cookie,grape,milk,egg,BBQ_chicken, corn ,flavored_can, fried_snacks ,tomato ,chocolate];
 
    
   for(let i = 0 ; i<healthy_foods.length;i++){
@@ -94,7 +99,7 @@ function setup() {
   cat_left.resize(100, 0);
   cat_right.resize(100, 0);
 
-  for(let i = 1; i<healthy_foods.length;i++){
+  for(let i = 0; i<healthy_foods.length;i++){
 
     healthy_foods[i].resize(food_size,0);
   }
@@ -123,6 +128,8 @@ function setup() {
 
 
 function draw() {
+ HP-=HP_decay;
+ if(HP<0||HP>140){state = 'fail';}
 
   if(score==9){state = 'win';}
 
@@ -143,17 +150,18 @@ function win(){
   background('green');
   
   textAlign(CENTER);
+  fill('black');
   textSize(60);
-  text('You win',width/2,height/3);
+  text('congratulation---You win',width/2,height/3);
 
 }
 
 class Food{
   constructor(FOOD,HEALTHY){
 
-    this.x = random(-800,800);
+    this.x = random(-2000,2000);
     let p = random(1);
-      if(p<0.75) {this.y = random(streetline,580);} 
+      if(p<0.75) {this.y = random(streetline,560);} 
       else{this.y = random(700,height);}
     
    
@@ -164,11 +172,11 @@ class Food{
 
   detect(){
     if( key== "1"){character.interaction = true;
-
+   console.log("this.food.width/2");
     }
     else{character.interaction = false;}
-    if(character.interaction == true&&this.state==true&&dist(this.x,0,character.x,0)<(50)&&dist(0,this.y,0,character.y)<25){
-if(this.healthy == true){score+=1; this.state = false;}
+    if(character.interaction == true&&this.state==true&&dist(this.x,0,character.x,0)<30&&dist(0,this.y,0,character.y)<15){
+if(this.healthy == true){score+=1; this.state = false; HP+=40;}
       else{state = 'fail';}
     }
   }
@@ -178,7 +186,9 @@ if(this.healthy == true){score+=1; this.state = false;}
     if(this.state == true){
       push();
       translate(this.x,this.y);
+      imageMode(CENTER);
       image(this.food,0,0);
+      imageMode(CORNER);
       pop();
     }
   }
@@ -195,12 +205,15 @@ function fail(){
 
 
   background('brown');
-  
+  fill('black');
   textAlign(CENTER);
   textSize(60);
-  text('You Lose',width/2,height/3);
+  text('You Lose---Please try again',width/2,height/3);
   textSize(30);
   text('Your Score:'+String(score),width/2,height/1.5);
+  textSize(20);
+  fill('white');
+  text('Do not give me human food! Be careful of the car! And I dont want to starve!',width/2,height/1.5+20);
 }
 
 
@@ -231,7 +244,7 @@ function food_display(){
 function ongoing(){
 
   background("brown");
-
+  
   let day_night = floor((millis()/dayLength)%2);
   if(day_night==0){image(day, 0, 0);}
   else{image(night, 0, 0);
@@ -266,7 +279,13 @@ draw_car();
 
 
    if(weather == 1){rain();}
-
+ 
+   fill('brown');
+   rect(width-100,height,100,30);
+   textSize(30);
+   textAlign(CORNER);
+   text('HP:'+ String(floor(HP)),width-110,30);
+   text('Score:'+String(score),width-110,60);
 
 }
 
@@ -326,9 +345,9 @@ function building_display() {
 function keyPressed() {
   // 
   latestNewKeyPress = key;
-  if (key == "ArrowLeft") {
+  if (key == "a") {
     targetSpeedX = -2;
-  } else if (key == "ArrowRight") {
+  } else if (key == "d") {
     targetSpeedX = 2;
   }
 }
@@ -354,9 +373,9 @@ class Cat {
 
 
     if (keyIsPressed) {
-      if (latestNewKeyPress == "ArrowRight") {
+      if (latestNewKeyPress == "d") {
         targetSpeedX = -4;
-      } else if (latestNewKeyPress == "ArrowLeft") {
+      } else if (latestNewKeyPress == "a") {
         targetSpeedX = 4;
       }
     } else {
@@ -364,9 +383,9 @@ class Cat {
     }
 
     if (keyIsPressed) {
-      if (key == "ArrowUp"&&this.y>500) {
+      if (key == "w"&&this.y>500) {
         this.speedY = -1;
-      } else if (latestNewKeyPress == "ArrowDown"&&this.y<height) {
+      } else if (latestNewKeyPress == "s"&&this.y<height) {
         this.speedY = 1;
       } else {
         this.speedY = 0;

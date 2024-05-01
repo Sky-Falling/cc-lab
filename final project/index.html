@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>CCLab Project</title>
+  <title>Food Dash</title>
 
   <link rel="stylesheet" type="text/css" href="style.css">
 
@@ -16,12 +16,53 @@
 
 <body>
 
-  <h1>Project Title</h1>
+  <h1>Food Dash</h1>
 
   <!-- the following div will contain the p5 canvas. -->
   <div id="canvasContainer"></div>
 
-  <p>Project Description</p>
+   <div> <h3 class="red">Objective:</h>
+    <p class="black">Control a stray cat and help it collect safe food while avoiding cars. Be careful of the human food and the cars whizzing by! Also don't overfeed yourself.</p>
+  </div>
+
+
+   <div><h3 class="red">Controls:</h>
+    <p class="black">Use "a,w,s,d" to move the cat.
+      Press "1" on the keyboard to pick up and eat food beside you.</p></div>
+
+
+   <div>
+    <h3 class="red">Food:</h>
+  <p class="black">The road has different types of food randomly scattered (all near your starting point).
+    Some food is safe, while others are harmful.
+    Safe food gives scores/restore HP, while harmful food or extremely low HP point lead to failure.</p>
+   </div>
+
+
+
+   <div>
+    <h3 class="red">Overfeeding:</h>
+  <p class="black">Be mindful of the cat's consumption.
+    Overfeeding (HP>140) leads to losing the game.</p></div>
+
+
+   <div> <h3 class="red">    Game Over:</h>
+    <p class="black">The game ends if:</p>
+    <p class="black">The cat is overfed/starved(HP>140orHP=0).</p>
+    <p class="black">The cat eats harmful food.</p>
+    <p class="black">The cat collides with a car.</p></div>
+
+
+   <div><h3 class="red">Win the game:</h>
+    <p class="black">If you eat all healthy food(9 in all), then you win!</p></div>
+ 
+  
+
+  
+   
+    
+  
+
 
   <!-- the script tag below should always be at the bottom, right before the closing body tag -->
   <script src="sketch.js"></script>
