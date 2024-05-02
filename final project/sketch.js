@@ -8,7 +8,7 @@ let state = 'ongoing';
 let foods = [];
 let score = 0;
 let food_size = 50;
-let HP = 100;
+let HP = 90;
 let HP_decay = 0.05;
 
 
@@ -128,14 +128,20 @@ function setup() {
 
 function draw() {
  HP-=HP_decay;
- if(HP<0||HP>140){state = 'fail';}
-
+ if(HP<0){state = 'fail_starve';}
+ if(HP>140){state = 'fail_overfead';}
   if(score==9){state = 'win';}
 
   switch (state){
     case 'ongoing': ongoing();
     break;
-    case 'fail': fail();
+    case 'fail_starve': fail("Please find me some food. I dont want to starve!");
+      break;
+      case 'fail_overfead': fail("Don’t overfeed me! Please keep the HP below 140.");
+      break;
+      case 'fail_car': fail('Be careful of the car!');
+      break;
+      case 'fail_food': fail('I don’t  want human food! The additives are harmful to me!');
       break;
     case 'win': win();
     break;
@@ -175,8 +181,8 @@ class Food{
     }
     else{character.interaction = false;}
     if(character.interaction == true&&this.state==true&&dist(this.x,0,character.x,0)<30&&dist(0,this.y,0,character.y)<15){
-if(this.healthy == true){score+=1; this.state = false; HP+=40;}
-      else{state = 'fail';}
+if(this.healthy == true){score+=1; this.state = false; HP+=30;}
+      else{state = 'fail_food';}
     }
   }
 
@@ -200,9 +206,7 @@ if(this.healthy == true){score+=1; this.state = false; HP+=40;}
 }
 
 
-function fail(){
-
-
+function fail(SENTENCE){
   background('brown');
   fill('black');
   textAlign(CENTER);
@@ -212,7 +216,7 @@ function fail(){
   text('Your Score:'+String(score),width/2,height/1.5);
   textSize(20);
   fill('white');
-  text('Do not give me human food! Be careful of the car! And I dont want to starve!',width/2,height/1.5+20);
+  text(SENTENCE,width/2,height/1.5+20);
 }
 
 
@@ -561,7 +565,7 @@ class Car{
 
     if(dist(this.x,0,character.x,0)<(car.width/2+cat_left.width/2)&&dist(0,this.y,0,character.y)<20){
 
-      state = 'fail';
+      state = 'fail_car';
     }
 
   }
