@@ -10,6 +10,7 @@ let score = 0;
 let food_size = 50;
 let HP = 90;
 let HP_decay = 0.05;
+let road_line = 660;
 
 function preload() {
   tree2 = loadImage("tree2.png");
@@ -156,6 +157,7 @@ function setup() {
 }
 
 function draw() {
+  console.log(mouseY);
   HP -= HP_decay;
   if (HP < 0) {
     state = "fail_starve";
@@ -313,7 +315,7 @@ function ongoing() {
   food_detect();
   food_display();
 
-  if (character.y < 600) {
+  if (character.y < road_line) {
     // draw_cat();
     character.update();
   character.display();
