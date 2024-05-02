@@ -315,7 +315,7 @@ function ongoing() {
   food_detect();
   food_display();
 
-  if (character.y < road_line) {
+  if (character.y < 600) {
     // draw_cat();
     character.update();
   character.display();
