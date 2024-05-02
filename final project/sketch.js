@@ -28,7 +28,7 @@ function preload() {
   hospital = loadImage("hospital1.jpg");
   day = loadImage("day.png");
   night = loadImage("night.jpg");
-  road = loadImage("road3.jpg");
+  road = loadImage("road2.jpg");
   cat_left = loadImage("character_left.png");
   cat_right = loadImage("character_right.png");
 
